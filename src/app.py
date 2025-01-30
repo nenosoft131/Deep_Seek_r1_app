@@ -1,4 +1,5 @@
 import streamlit as st
+
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
 
@@ -13,7 +14,7 @@ st.markdown("""
 <style>
     /* Existing styles */
     .main {
-        background-color: #1a1a1a;
+        background-color: #FFFFFF;
         color: #ffffff;
     }
     .sidebar .sidebar-content {
@@ -45,33 +46,14 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-st.title("🧠 DeepSeek Code Companion")
-st.caption("🚀 Your AI Pair Programmer with Debugging Superpowers")
+st.title("DeepSeek")
+st.caption("Your AI Pair")
 
 # Sidebar configuration
-with st.sidebar:
-    st.header("⚙️ Configuration")
-    selected_model = st.selectbox(
-        "Choose Model",
-        ["deepseek-r1:1.5b", "deepseek-r1:3b"],
-        index=0
-    )
-    st.divider()
-    st.markdown("### Model Capabilities")
-    st.markdown("""
-    - 🐍 Python Expert
-    - 🐞 Debugging Assistant
-    - 📝 Code Documentation
-    - 💡 Solution Design
-    """)
-    st.divider()
-    st.markdown("Built with [Ollama](https://ollama.ai/) | [LangChain](https://python.langchain.com/)")
-
 
 # initiate the chat engine
-
 llm_engine=ChatOllama(
-    model=selected_model,
+    model="deepseek-r1:1.5b",
     base_url="http://localhost:11434",
 
     temperature=0.3
